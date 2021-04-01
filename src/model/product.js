@@ -47,10 +47,22 @@ const deleteProduct = (id) => {
   } else return null;
 };
 
+const addProductAmount = (id) => {
+  const productQuantityToAdd = 50;
+  const products = getProducts();
+  const index = products.findIndex((p) => p.id === id);
+  if (index !== -1) {
+    products[index].amount += productQuantityToAdd;
+    fs.writeFileSync("db.json", JSON.stringify(products));
+    return products[index];
+  } else return null;
+};
+
 module.exports = {
   getProducts,
   getProductDetails,
   createProduct,
   upadteProduct,
   deleteProduct,
+  addProductAmount
 };

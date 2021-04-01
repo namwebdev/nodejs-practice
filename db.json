@@ -1,16 +1,1 @@
-[
-  {
-    "id": 1,
-    "title": "Bàn phím",
-    "description": "Thương hiệu Logitech",
-    "price": 10000,
-    "amount": 1
-  },
-  {
-    "id": 2,
-    "title": "Màn hình TV",
-    "description": "Thương hiệu LG",
-    "price": 4999999,
-    "amount": 1
-  }
-]
+[{"id":1,"title":"Bàn phím","description":"Thương hiệu Logitech","price":10000,"amount":1},{"id":2,"title":"Màn hình TV","description":"Thương hiệu LG","price":4999999,"amount":101},{"id":88,"title":"test Product","description":"Test Description","price":200000,"amount":51}]

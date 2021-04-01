@@ -6,6 +6,7 @@ const {
   createProduct,
   upadteProduct,
   deleteProduct,
+  addProductAmount,
 } = require("./model/product");
 
 yargs.command({
@@ -22,8 +23,7 @@ yargs.command({
   handler: (args) => {
     const { id } = args;
     const res = getProductDetails(id);
-    if (res)
-      console.log(chalk.green("Get Product Details successfully:\n"), res);
+    if (res) console.log(res);
     else console.log(chalk.red("Get Product Details failed"));
   },
 });
@@ -47,11 +47,7 @@ yargs.command({
   handler: (args) => {
     const { title, description, price, amount } = args;
     const res = createProduct(title, description, price, amount);
-    if (res)
-      console.log(
-        chalk.green("Create Product successfully:\n"),
-        JSON.stringify(res)
-      );
+    if (res) console.log(chalk.green("Create Product successfully:\n"), res);
     else console.log(chalk.red("Create Product failed"));
   },
 });
@@ -90,6 +86,21 @@ yargs.command({
     const res = deleteProduct(id);
     if (res) console.log(chalk.green("Delete Product successfully"));
     else console.log(chalk.red("Delete Product successfully failed"));
+  },
+});
+
+yargs.command({
+  command: "add-quantity",
+  builder: {
+    id: {
+      type: Number,
+    },
+  },
+  handler: (args) => {
+    const { id } = args;
+    const res = addProductAmount(id);
+    if (res) console.log(chalk.green("Product is added"), res);
+    else console.log(chalk.red("Product add failed"));
   },
 });
 
