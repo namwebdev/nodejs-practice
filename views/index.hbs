@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zynky location</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="max-w-lg mx-auto mt-10 rounded-md bg-blue-100 pt-10 mb-5 relative">
+        <div class="logo h-10">
+            <img src="/images/Logo.png" alt="Logo" />
+        </div>
+        <div class="text-blue-800 font-bold text-center text-2xl">
+            Find your place coordinates
+        </div>
+        <form action="/" class="mt-4 px-14 flex items-center pb-10">
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="location"
+                name="location" type="text" placeholder="Type your keyword here" />
+            <button type="submit" class="py-2 px-3 ml-1 rounded bg-blue-500 text-white hover:opacity-80">Submit</button>
+        </form>
+        {{#if status}}
+        <section class="mt-1">
+            {{#each data}}
+            <div class="p-4 hover:bg-gray-100 transition-all">
+                <div class="text-lg font-bold">{{this.text}}</div>
+                <div class="text-xs text-gray-400">Place type: <span
+                        class="capitalize font-bold">{{this.place_type}}</span>
+                </div>
+                <div class="mt-3 flex items-center">
+                    <img src="/images/map-marker-solid.svg" alt="" class="h-4 mr-2">
+                    {{this.center}}
+                </div>
+            </div>
+            {{/each}}
+        </section>
+        {{/if}}
+
+        {{#if isEmpty}}
+        <div class="text-gray-500 italic text-center pb-4 text-lg">No result match your keyword.</div>
+        {{/if}}
+    </div>
+</body>
+
+</html>
