@@ -6,41 +6,41 @@ const {
   deleteById,
 } = require("../services/product.services");
 
-const getListProduct = (req, res) => {
-  const products = getList();
+const getListProduct = async (req, res) => {
+  const products = await getList();
   res.status(200).send(products);
 };
 
-const getProductDetails = (req, res) => {
+const getProductDetails = async (req, res) => {
   const { id } = req.params;
-  const product = getDetails(id);
+  const product = await getDetails(id);
   if (product) res.status(200).send(product);
   else res.status(404).send("Not found");
 };
 
-const createProduct = (req, res) => {
+const createProduct = async (req, res) => {
   const product = req.body;
-  const newProduct = create(product);
+  const newProduct = await create(product);
   res.status(201).json({
     message: "Create Product successfully",
     data: newProduct,
   });
 };
 
-const updateProduct = (req, res) => {
+const updateProduct = async (req, res) => {
   const { id } = req.params;
   const product = req.body;
-  const productUpdate = updateById(id, product);
-  if (productUpdate)
+  const productUpdated = await updateById(id, product);
+  if (productUpdated)
     res
       .status(200)
-      .json({ message: "Update Product successfully", data: productUpdate });
+      .json({ message: "Update Product successfully", data: productUpdated });
   else res.status(404).send("Product not found");
 };
 
-const deleteProduct = (req, res) => {
+const deleteProduct = async (req, res) => {
   const { id } = req.params;
-  const status = deleteById(id);
+  const status = await deleteById(id);
   if (status) res.status(200).send("Delete Product successfully");
   else res.status(404).send("Product not found");
 };
