@@ -38,7 +38,7 @@ const checkValidAmount = (req, res, next) => {
 
 const checkValidSale = (req, res, next) => {
   const { price, sale } = req.body;
-  if (sale < price) next();
+  if (parseInt(sale) <= parseInt(price)) next();
   else res.status(400).send("Sale cannot be greater than Price");
 };
 

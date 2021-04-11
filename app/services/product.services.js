@@ -1,7 +1,7 @@
 const { Product } = require("../models/index");
 
 const getList = async () => {
-  const products = await Product.findAll();
+  const products = await Product.findAll({ order: [["id", "DESC"]] });
   return products || [];
 };
 
