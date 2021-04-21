@@ -1,0 +1,15 @@
+---
+application:
+  name: "productapi"
+  project: "Product-API"
+  organization: "QoveryCommunity"
+databases:
+- type: "MYSQL"
+  name: "product_db"
+  version: "5.7"
+routers:
+- name: "main-productapi"
+  routes:
+  - application_name: "productapi"
+    paths:
+    - "/*"
