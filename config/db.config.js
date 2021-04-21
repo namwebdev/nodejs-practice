@@ -1,7 +1,7 @@
 module.exports = {
-  HOST: "sql6.freemysqlhosting.net",
-  USER: "sql6403666",
-  PASSWORD: "v1a66Ptx6d",
-  DB: "sql6403666",
+  HOST: "product-db-r63bjtnvvnfmiuwp-svc.qovery.io",
+  USER: "root",
+  PASSWORD: "B62CrkVSJ49eWMki",
+  DB: `mysql-product-db`,
   dialect: "mysql",
 };
