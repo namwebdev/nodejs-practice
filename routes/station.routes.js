@@ -3,6 +3,7 @@ const {
   getAllStation,
   createStation,
   deleteStation,
+  updateStation,
 } = require("../controllers/station.controllers");
 const { authenticate } = require("../middlewares/auth/authenticate");
 const { authorize } = require("../middlewares/auth/authorize");
@@ -22,6 +23,12 @@ stationRouter.post(
   authenticate,
   authorize(rolesHavePermission),
   createStation
+);
+stationRouter.put(
+  "/:id",
+  authenticate,
+  authorize(rolesHavePermission),
+  updateStation
 );
 stationRouter.delete(
   "/:id",

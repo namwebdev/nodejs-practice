@@ -1,6 +1,7 @@
 const express = require("express");
 const { register, login } = require("../controllers/auth.controllers");
 const { stationRouter } = require("./station.routes");
+const { tripRouter } = require("./trip.routes");
 
 const rootRouter = express.Router();
 
@@ -12,5 +13,6 @@ rootRouter.post("/login", login);
 //
 
 rootRouter.use("/stations", stationRouter);
+rootRouter.use("/trips", tripRouter);
 
 module.exports = { rootRouter };

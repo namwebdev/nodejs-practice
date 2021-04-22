@@ -6,7 +6,7 @@ module.exports = {
       "stations",
       [
         {
-          name: "Test new",
+          name: "Bến xe Miền Tây",
           address: "address",
           province: "HCM",
           createdAt: "2021-03-26 07:06:14",
